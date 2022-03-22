@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Gunakan Vaksin";
+}
+
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Vaksin Penduduk</h2>
+</div>
+
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <form class="user" method="post" action="/RumahSakit/GunakanVaksin">
+            <input type="hidden" class="form-control" name="id" id="id" value="@ViewBag.id">
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label" style="position:relative; top:7px;">NIK Penduduk</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-9">
+                    <select class="form-control" name="nik" id="nik">
+                        @foreach (var item in ViewBag.penduduk)
+                        {
+                            if (item.status == 1)
+                            {
+                                <option value="@item.NIK">@item.NIK - @item.nama (@item.umur Tahun)</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label" style="position:relative; top:7px;">Nama Perawat</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Perawat"
+                           required>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9">
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" name="gunakan" class="btn btn-success">Gunakan</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

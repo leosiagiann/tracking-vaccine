@@ -1,0 +1,125 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Penduduk>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+</style>
+
+<div class="jumbotron" style="background-color: forestgreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Pendaftaran Penerima Vaksin</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="order-column" style="width:100%">
+            <thead style="background-color: deepskyblue">
+                <tr>
+                    <th>
+                        Nomor Induk Kependudukan
+                    </th>
+                    <th>
+                        Nama
+                    </th>
+                    @*<th>
+                            Alamat
+                        </th>*@
+                    <th>
+                        Umur
+                    </th>
+                    @*<th>
+                            Jenis Kelamin
+                        </th>*@
+                    <th>
+                        Aksi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == 3)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.NIK)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.nama)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayFor(modelItem => item.alamat)
+                                </th>*@
+                            <th>
+                                @Html.DisplayFor(modelItem => item.umur)
+                            </th>
+                            @*@if (item.jenis_kelamin == "P")
+                                {
+                                    <th>
+                                        Perempuan
+                                    </th>
+                                }
+                                @if (item.jenis_kelamin == "L")
+                                {
+                                    <th>
+                                        Laki - Laki
+                                    </th>
+                                }*@
+                            <th>
+                                <button class="btn btn-danger" onclick="location.href='@Url.Action("Tolak", new { id = item.NIK })';return false;">Decline <i class="glyphicon glyphicon-remove"></i></button>
+                                <button class="btn btn-success" onclick="location.href='@Url.Action("Terima", new { id = item.NIK })';return false;">Accept <i class="glyphicon glyphicon-ok"></i></button>
+                            </th>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.berhasil == true)
+    {
+        <script>
+            swal({
+                title: "Selamat Datang Pemerintahan",
+                text: "Anda Berhasil Login",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.terima == true)
+    {
+        <script>
+            swal({
+                title: "Verifikasi NIK",
+                text: "Lolos Sebagai Kandidat Penerima Vaksin",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.tolak == true)
+    {
+        <script>
+            swal({
+                title: "Verifikasi NIK",
+                text: "Gagal Sebagai Kandidat Penerima Vaksin",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+}
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />

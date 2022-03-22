@@ -1,0 +1,96 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Regis_Vaksin>
+
+@{
+    ViewBag.Title = "Vaksin";
+}
+
+<style type="text/css">
+    .sv {
+        background-color: #008000;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Vaksin Ter-Verivikasi</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <a href="/BadanPom/TampilSemua"><button class="btn btn-primary btn-lg">Bagikan Semua Info Vaksin <i class="glyphicon glyphicon-share-alt"></i></button></a>
+        <br /><br />
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: darkgrey">
+                <tr style="color: white">
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nama Vaksin
+                    </th>
+                    <th>
+                        Aksi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == 1 || item.status == 4)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.ID_vaksin)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.nama)
+                            </th>
+                            @if (item.status == 1)
+                            {
+                                <th>
+                                    <button class="btn btn-success" onclick="location.href='@Url.Action("Sebar", new { id = item.ID_vaksin })';return false;">Sebar <i class="glyphicon glyphicon-share-alt"></i></button>
+                                </th>
+                            }
+                            @if (item.status == 4)
+                            {
+                                <th>
+                                    <span class="sv">Dibagikan</span>
+                                </th>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.sebar == "sebar")
+    {
+        <script>
+            swal({
+                title: "Vaksin",
+                text: "Vaksin Telah Dibagikan Informasi Kepada Penduduk",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+}
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />

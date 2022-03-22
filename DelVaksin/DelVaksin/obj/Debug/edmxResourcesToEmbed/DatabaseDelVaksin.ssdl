@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DEL_VAKSINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Akun">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="pass" Type="varchar" MaxLength="32" />
+    <Property Name="roll" Type="varchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Penduduk">
+    <Key>
+      <PropertyRef Name="NIK" />
+    </Key>
+    <Property Name="NIK" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="32" />
+    <Property Name="umur" Type="int" />
+    <Property Name="alamat" Type="varchar" MaxLength="64" />
+    <Property Name="jenis_kelamin" Type="varchar" MaxLength="1" />
+    <Property Name="username" Type="varchar" MaxLength="32" />
+    <Property Name="pass" Type="varchar" MaxLength="32" />
+    <Property Name="profil" Type="varchar" MaxLength="128" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Regis_Vaksin">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="32" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Vaksin">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="32" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Vaksin_Veried">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="NIK" Type="varchar" MaxLength="16" />
+    <Property Name="nama_perawat" Type="varchar" MaxLength="16" />
+  </EntityType>
+  <EntityContainer Name="DEL_VAKSINModelStoreContainer">
+    <EntitySet Name="Akun" EntityType="Self.Akun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Penduduk" EntityType="Self.Penduduk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regis_Vaksin" EntityType="Self.Regis_Vaksin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vaksin" EntityType="Self.Vaksin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vaksin_Veried" EntityType="Self.Vaksin_Veried" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

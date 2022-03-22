@@ -1,0 +1,67 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Vaksin_Veried>
+
+@{
+    ViewBag.Title = "History";
+}
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+</style>
+<div class="jumbotron" style="background-color: royalblue">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">History Penggunaan Vaksin</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: aqua">
+                <tr>
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nomor Induk Kependudukan
+                    </th>
+                    <th>
+                        Nama Perawat
+                    </th>
+                    <th>
+                        Aksi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.ID_vaksin)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.NIK)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.nama_perawat)
+                        </th>
+                        <th>
+                            <button class="btn btn-info" onclick="location.href='@Url.Action("Detail", new { id = item.ID_vaksin })';return false;">Detail <i class="fas fa-eye"></i></button>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+@section scripts{
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}

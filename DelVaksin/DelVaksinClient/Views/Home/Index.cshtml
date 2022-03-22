@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="jumbotron" style="background-color: forestgreen; margin-top: 0px">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">DelVaksin</h2><br />
+    <p style="color: white; margin-bottom: -15px;">Selamat Datang di DelVaksin, Silahkan Mendaftar untuk menjadi calon penerima vaksin</p>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px">
+        <center><img src="~/Content/gbr.jpg" alt="Gambar" /></center>
+        <br />
+        <p style="font-weight: bold">
+            Virus Corona atau severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan. Penyakit karena infeksi virus ini disebut COVID-19. Virus Corona bisa menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian.
+        </p>
+        <p style="font-weight: bold">
+            Gejala Virus Corona (COVID-19)
+        </p>
+        <p style="font-weight: bold">
+            Gejala awal infeksi virus Corona atau COVID-19 bisa menyerupai gejala flu, yaitu demam, pilek, batuk kering, sakit tenggorokan, dan sakit kepala. Setelah itu, gejala dapat hilang dan sembuh atau malah memberat. Penderita dengan gejala yang berat bisa mengalami demam tinggi, batuk berdahak bahkan berdarah, sesak napas, dan nyeri dada. Gejala-gejala tersebut muncul ketika tubuh bereaksi melawan virus Corona.
+        </p>
+    </div>
+</div>
+
+@*   Login   *@
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-top: -10px">
+                <h3 id="myModalLabel">Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="user" method="post" action="/Home/LoginUser">
+                        <div class="row form-group">
+                            <div class="col-sm-3">
+                                <label class="control-label" style="position:relative; top:7px;">Username</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                                       required>
+                                <small class="text text-muted">
+                                    Masukkan Username tanpa meninggalkan spasi dibelakang
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-3">
+                                <label class="control-label" style="position:relative; top:7px;">Password</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                                       required>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="position:relative; top:-15px; margin-bottom: -15px">
+                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*   Login   *@
+
+@*   Register   *@
+<div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-top: -10px">
+                <h3 id="myModalLabel">Daftar Penduduk</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="user" method="post" action="/Home/RegistrasiUser">
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">NIK</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="NIK" id="NIK" placeholder="Nomor Induk Kependudukan"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Nama</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Anda"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Umur</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" name="umur" id="umur" placeholder="Umur Anda"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Alamat</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat Anda"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Jenis Kelamin</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="j_kel" id="j_kel">
+                                    <option value="L">Laki - Laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Username</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Usename Anda"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Password</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px; color: black; font-weight: bold">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password Anda"
+                                       required>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="position:relative;">
+                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*   Register   *@
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (ViewBag.Logout == true)
+    {
+        <script>
+            swal({
+                title: "Sampai Jumpa!!!",
+                text: "Anda Berhasil Logout",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.Wrong == true)
+    {
+        <script>
+            swal({
+                title: "Terjadi Kesalahan",
+                text: "Username atau Password Anda Salah",
+                icon: "error",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.WrongWay == true)
+    {
+        <script>
+            swal({
+                title: "Terjadi Kesalahan",
+                text: "Anda Harus Login Terlebih Dahulu",
+                icon: "warning",
+                button: "ok"
+            });
+        </script>
+    }
+}

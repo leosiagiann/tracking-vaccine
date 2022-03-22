@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52687/AllFunc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DelVaksin" />
+  <xs:element name="Register">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="penduduk" nillable="true" type="q1:Penduduk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="terimaVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q2:Vaksin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="terimaVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="terimaVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tolakVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q3:Vaksin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tolakVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tolakVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gunakanVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q4:Vaksin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gunakanVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gunakanVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tambahVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q5:Vaksin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tambahVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tambahVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="editVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q6:Vaksin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="editVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="editVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hapusVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hapusVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hapusVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="kirimVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="kirimVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="kirimVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bagikanVaksinId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bagikanVaksinIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bagikanVaksinIdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bagikanVaksinAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bagikanVaksinAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bagikanVaksinAllResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="daftarVaksin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NIK" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="daftarVaksinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="daftarVaksinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gunakanVaksinPenduduk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DelVaksin" minOccurs="0" name="vaksin" nillable="true" type="q7:Vaksin_Veried" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gunakanVaksinPendudukResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gunakanVaksinPendudukResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vaksinSudahTerpakai">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vaksinSudahTerpakaiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vaksinSudahTerpakaiResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="balikStatusPenduduk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NIK" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="balikStatusPendudukResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="balikStatusPendudukResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ubahDataPenduduk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nik" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nama" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="umur" type="xs:int" />
+        <xs:element minOccurs="0" name="alamat" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="j_kel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="profil" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ubahDataPendudukResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ubahDataPendudukResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ubahPasswordPenduduk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nik" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ubahPasswordPendudukResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ubahPasswordPendudukResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

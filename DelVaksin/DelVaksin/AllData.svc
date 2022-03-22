@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DelVaksin.AllData" CodeBehind="AllData.svc.cs" %>

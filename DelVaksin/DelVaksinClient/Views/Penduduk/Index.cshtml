@@ -1,0 +1,265 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Regis_Vaksin>
+
+@{ ViewBag.Title = "Index"; }
+
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+</style>
+<div class="jumbotron" style="background-color: dodgerblue">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Daftar Vaksin Lulus Uji BPOM</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="display" style="width:100%; background-color: aqua">
+            <thead>
+                <tr>
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nama Vaksin
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == 4)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.ID_vaksin)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.nama)
+                            </th>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+@if (ViewBag.status == 0)
+{
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <h4>Segera Daftarkan diri untuk divaksinasi dengan meng-klik tombol dibawah ini</h4>
+        <form method="post" action="/Penduduk/DaftarVaksin">
+            <input type="hidden" name="NIK" id="NIK" value="@ViewBag.nik">
+            <button type="submit" name="register" class="btn btn-success"><i class="glyphicon glyphicon-hand-right"></i> Daftar <i class="glyphicon glyphicon-hand-left"></i> </button>
+        </form>
+    </div>
+</div>}
+@if (ViewBag.status == 3)
+{
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <h4>Anda telah didaftarkan sebagai calon penerima Vaksin</h4>
+        <h4>Tunggu Informasi Vaksin anda!!!</h4>
+    </div>
+</div>}
+@if (ViewBag.status == 1)
+{
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <h4>Anda telah diterima sebagai calon pemerima Vaksinasi....</h4>
+        <h4>Segera kunjungi rumah sakit daerah anda!!!</h4>
+    </div>
+</div>}
+@if (ViewBag.status == 2)
+{
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <h4>Ups.... Anda ditolak sebagai calon penerima vaksin</h4>
+        <h4>Anda telah menerimanya sekali dan tidak bisa lagi untuk mendaftarkan diri</h4>
+    </div>
+</div>}
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.berhasil == true)
+    {
+        <script>
+            swal({
+                title: "Selamat Datang @ViewBag.penduduk.nama",
+                text: "Anda Berhasil Login",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.update == true)
+    {
+<script>
+            swal({
+                title: "Profil @ViewBag.penduduk.nama",
+                text: "Profil Anda Sudah Diperbaharui",
+                icon: "success",
+                button: "ok"
+            });
+</script>
+    }
+    @if (ViewBag.pw == true)
+    {
+<script>
+            swal({
+                title: "Profil @ViewBag.penduduk.nama",
+                text: "Password Anda Sudah Diperbaharui",
+                icon: "success",
+                button: "ok"
+            });
+</script>
+    }
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@*   Profil   *@
+<div class="modal fade" id="Profil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-top: -10px">
+                <h3 id="myModalLabel">Profil <i class="fas fa-user-cog"></i></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="user" method="post" action="/Penduduk/UpdateProfil" enctype="multipart/form-data">
+                        <div class="row form-group">
+                            <center><img src="~/Content/img/@ViewBag.penduduk.profil" alt="Gambar" class="img-circle img-thumbnail" style="width: 200px; height: 150px" /></center>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Nomor Induk Kependudukan</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" value="@ViewBag.penduduk.NIK" name="nik" id="nik" readonly>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Nama</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" value="@ViewBag.penduduk.nama" name="nama" id="nama" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Umur</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" value="@ViewBag.penduduk.umur" name="umur" id="umur" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Alamat</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" value="@ViewBag.penduduk.alamat" name="alamat" id="alamat" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Jenis Kelamin</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="j_kel" id="j_kel">
+                                    <option value="L">Laki - Laki</option>
+                                    @if (ViewBag.penduduk.jenis_kelamin == "P")
+                                    {
+                        <option value="P" selected>Perempuan</option>}
+                                    @if (ViewBag.penduduk.jenis_kelamin == "L")
+                                    {
+                        <option value="P">Perempuan</option>}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Foto</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="file" class="form-control" name="file" id="file">
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer" style="position:relative; margin-bottom: -15px">
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-success">Perbaharui</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*   Profil   *@
+
+@*   Password   *@
+<div class="modal fade" id="Password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-top: -10px">
+                <h3 id="myModalLabel">Ubah Password <i class="fas fa-cog"></i></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="user" method="post" action="/Penduduk/UpdatePassword">
+                        <input type="hidden" class="form-control" value="@ViewBag.penduduk.NIK" name="nik" id="nik" readonly>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Password Baru</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" placeholder="Password Baru" name="password" id="password" required>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer" style="position:relative; margin-bottom: -15px">
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-success">Perbaharui</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*   Profil   *@

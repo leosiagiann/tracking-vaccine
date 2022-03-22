@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Vaksin>
+
+@{
+    ViewBag.Title = "Lapor Vaksin";
+}
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+
+    .sv {
+        background-color: #008000;
+        padding: 5px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+</style>
+
+<div class="jumbotron" style="background-color: royalblue">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Vaksin yang telah digunakan</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: aqua">
+                <tr>
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nama Vaksin
+                    </th>
+                    <th>
+                        Pilihan
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == 7 || item.status == 8)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.ID_vaksin)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.nama)
+                            </th>
+                            @if (item.status == 7)
+                            {
+                                <th>
+                                    <button class="btn btn-primary" onclick="location.href='@Url.Action("ReportUse", new { id = item.ID_vaksin })';return false;">Lapor BPOM <i class="glyphicon glyphicon-menu-hamburger"></i></button>
+                                </th>
+                            }
+                            @if (item.status == 8)
+                            {
+                                <th>
+                                    <span class="sv">Telah di Laporkan</span>
+                                </th>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.sampai == true)
+    {
+        <script>
+            swal({
+                title: "Laporan Vaksin",
+                text: "Vaksin Telah Digunakan dan Dilaporkan ke Badan POM",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+}

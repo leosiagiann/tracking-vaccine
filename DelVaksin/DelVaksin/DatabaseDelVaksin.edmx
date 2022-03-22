@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DEL_VAKSINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Akun">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="32" />
+          <Property Name="roll" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Penduduk">
+          <Key>
+            <PropertyRef Name="NIK" />
+          </Key>
+          <Property Name="NIK" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="32" />
+          <Property Name="umur" Type="int" />
+          <Property Name="alamat" Type="varchar" MaxLength="64" />
+          <Property Name="jenis_kelamin" Type="varchar" MaxLength="1" />
+          <Property Name="username" Type="varchar" MaxLength="32" />
+          <Property Name="pass" Type="varchar" MaxLength="32" />
+          <Property Name="profil" Type="varchar" MaxLength="128" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="Regis_Vaksin">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="32" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="Vaksin">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="32" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="Vaksin_Veried">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="NIK" Type="varchar" MaxLength="16" />
+          <Property Name="nama_perawat" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityContainer Name="DEL_VAKSINModelStoreContainer">
+          <EntitySet Name="Akun" EntityType="Self.Akun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Penduduk" EntityType="Self.Penduduk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regis_Vaksin" EntityType="Self.Regis_Vaksin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vaksin" EntityType="Self.Vaksin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vaksin_Veried" EntityType="Self.Vaksin_Veried" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DEL_VAKSINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Akun">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="roll" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Penduduk">
+          <Key>
+            <PropertyRef Name="NIK" />
+          </Key>
+          <Property Name="NIK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="umur" Type="Int32" />
+          <Property Name="alamat" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="jenis_kelamin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="profil" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Regis_Vaksin">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vaksin">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vaksin_Veried">
+          <Key>
+            <PropertyRef Name="ID_vaksin" />
+          </Key>
+          <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NIK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="nama_perawat" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DEL_VAKSINEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Akuns" EntityType="Self.Akun" />
+          <EntitySet Name="Penduduks" EntityType="Self.Penduduk" />
+          <EntitySet Name="Regis_Vaksin" EntityType="Self.Regis_Vaksin" />
+          <EntitySet Name="Vaksins" EntityType="Self.Vaksin" />
+          <EntitySet Name="Vaksin_Veried" EntityType="Self.Vaksin_Veried" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DEL_VAKSINModelStoreContainer" CdmEntityContainer="DEL_VAKSINEntities">
+          <EntitySetMapping Name="Akuns">
+            <EntityTypeMapping TypeName="DEL_VAKSINModel.Akun">
+              <MappingFragment StoreEntitySet="Akun">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="roll" ColumnName="roll" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Penduduks">
+            <EntityTypeMapping TypeName="DEL_VAKSINModel.Penduduk">
+              <MappingFragment StoreEntitySet="Penduduk">
+                <ScalarProperty Name="NIK" ColumnName="NIK" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="umur" ColumnName="umur" />
+                <ScalarProperty Name="alamat" ColumnName="alamat" />
+                <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="profil" ColumnName="profil" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regis_Vaksin">
+            <EntityTypeMapping TypeName="DEL_VAKSINModel.Regis_Vaksin">
+              <MappingFragment StoreEntitySet="Regis_Vaksin">
+                <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vaksins">
+            <EntityTypeMapping TypeName="DEL_VAKSINModel.Vaksin">
+              <MappingFragment StoreEntitySet="Vaksin">
+                <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vaksin_Veried">
+            <EntityTypeMapping TypeName="DEL_VAKSINModel.Vaksin_Veried">
+              <MappingFragment StoreEntitySet="Vaksin_Veried">
+                <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+                <ScalarProperty Name="NIK" ColumnName="NIK" />
+                <ScalarProperty Name="nama_perawat" ColumnName="nama_perawat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

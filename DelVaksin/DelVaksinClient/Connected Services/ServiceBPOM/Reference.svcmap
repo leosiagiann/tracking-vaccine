@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b479208-71f5-4cf8-8df1-65f9234311d0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52687/SBPOM.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SBPOM.disco" MetadataType="Disco" ID="7f0f84ee-ba68-4037-99a0-84e599cb2fa3" SourceId="1" SourceUrl="http://localhost:52687/SBPOM.svc?disco" />
+    <MetadataFile FileName="SBPOM.xsd" MetadataType="Schema" ID="e0a93770-8c26-407d-b75a-18e3804f7a8e" SourceId="1" SourceUrl="http://localhost:52687/SBPOM.svc?xsd=xsd0" />
+    <MetadataFile FileName="SBPOM.wsdl" MetadataType="Wsdl" ID="6a891012-3719-496a-a691-b379206a9819" SourceId="1" SourceUrl="http://localhost:52687/SBPOM.svc?wsdl" />
+    <MetadataFile FileName="SBPOM1.xsd" MetadataType="Schema" ID="948fd1ea-e1ac-43d8-be15-e7b84e016ddd" SourceId="1" SourceUrl="http://localhost:52687/SBPOM.svc?xsd=xsd2" />
+    <MetadataFile FileName="SBPOM2.xsd" MetadataType="Schema" ID="bc0e7f27-942c-4dce-9891-ad3d0848296e" SourceId="1" SourceUrl="http://localhost:52687/SBPOM.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

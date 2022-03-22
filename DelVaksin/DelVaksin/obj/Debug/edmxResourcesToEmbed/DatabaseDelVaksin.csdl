@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DEL_VAKSINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Akun">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="roll" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Penduduk">
+    <Key>
+      <PropertyRef Name="NIK" />
+    </Key>
+    <Property Name="NIK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="umur" Type="Int32" />
+    <Property Name="alamat" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="jenis_kelamin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="profil" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Regis_Vaksin">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vaksin">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nama" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vaksin_Veried">
+    <Key>
+      <PropertyRef Name="ID_vaksin" />
+    </Key>
+    <Property Name="ID_vaksin" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NIK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="nama_perawat" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DEL_VAKSINEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Akuns" EntityType="Self.Akun" />
+    <EntitySet Name="Penduduks" EntityType="Self.Penduduk" />
+    <EntitySet Name="Regis_Vaksin" EntityType="Self.Regis_Vaksin" />
+    <EntitySet Name="Vaksins" EntityType="Self.Vaksin" />
+    <EntitySet Name="Vaksin_Veried" EntityType="Self.Vaksin_Veried" />
+  </EntityContainer>
+</Schema>

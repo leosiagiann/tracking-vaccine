@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Vaksin>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+</style>
+
+<div class="jumbotron" style="background-color: royalblue">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Vaksin yang telah diterima</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: aqua">
+                <tr>
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nama Vaksin
+                    </th>
+                    <th>
+                        Pilihan
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == 5 || item.status == 6)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.ID_vaksin)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.nama)
+                            </th>
+                            @if (item.status == 5)
+                            {
+                                <th>
+                                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Report", new { id = item.ID_vaksin })';return false;">Lapor BPOM <i class="glyphicon glyphicon-menu-hamburger"></i></button>
+                                </th>
+                            }
+                            @if (item.status == 6)
+                            {
+                                <th>
+                                    <button class="btn btn-success" onclick="location.href='@Url.Action("Gunakan", new { id = item.ID_vaksin })';return false;">Pakai Vaksin</button>
+                                </th>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.berhasil == true)
+    {
+        <script>
+            swal({
+                title: "Selamat Datang Pihak Rumah Sakit",
+                text: "Anda Berhasil Login",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.sampai == true)
+    {
+        <script>
+            swal({
+                title: "Laporan Vaksin",
+                text: "Vaksin Telah Diterima dan Dilaporkan ke Badan POM",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+}

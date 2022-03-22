@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DEL_VAKSINModelStoreContainer" CdmEntityContainer="DEL_VAKSINEntities">
+    <EntitySetMapping Name="Akuns">
+      <EntityTypeMapping TypeName="DEL_VAKSINModel.Akun">
+        <MappingFragment StoreEntitySet="Akun">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="roll" ColumnName="roll" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penduduks">
+      <EntityTypeMapping TypeName="DEL_VAKSINModel.Penduduk">
+        <MappingFragment StoreEntitySet="Penduduk">
+          <ScalarProperty Name="NIK" ColumnName="NIK" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="umur" ColumnName="umur" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="profil" ColumnName="profil" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regis_Vaksin">
+      <EntityTypeMapping TypeName="DEL_VAKSINModel.Regis_Vaksin">
+        <MappingFragment StoreEntitySet="Regis_Vaksin">
+          <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vaksins">
+      <EntityTypeMapping TypeName="DEL_VAKSINModel.Vaksin">
+        <MappingFragment StoreEntitySet="Vaksin">
+          <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vaksin_Veried">
+      <EntityTypeMapping TypeName="DEL_VAKSINModel.Vaksin_Veried">
+        <MappingFragment StoreEntitySet="Vaksin_Veried">
+          <ScalarProperty Name="ID_vaksin" ColumnName="ID_vaksin" />
+          <ScalarProperty Name="NIK" ColumnName="NIK" />
+          <ScalarProperty Name="nama_perawat" ColumnName="nama_perawat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39f244e9-5d3d-4982-9df8-194c080da9e3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52687/AllFunc.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AllFunc.disco" MetadataType="Disco" ID="ca3cb78a-0fec-437d-97f0-ca1ea52d4874" SourceId="1" SourceUrl="http://localhost:52687/AllFunc.svc?disco" />
+    <MetadataFile FileName="AllFunc.xsd" MetadataType="Schema" ID="3a389d78-1eec-494a-8c70-35988ef675c6" SourceId="1" SourceUrl="http://localhost:52687/AllFunc.svc?xsd=xsd1" />
+    <MetadataFile FileName="AllFunc.wsdl" MetadataType="Wsdl" ID="508217e5-b5cc-444c-9abc-0dfa93fc268b" SourceId="1" SourceUrl="http://localhost:52687/AllFunc.svc?wsdl" />
+    <MetadataFile FileName="AllFunc1.xsd" MetadataType="Schema" ID="26d975ab-9266-4086-9f52-fac5d63c2b89" SourceId="1" SourceUrl="http://localhost:52687/AllFunc.svc?xsd=xsd0" />
+    <MetadataFile FileName="AllFunc2.xsd" MetadataType="Schema" ID="3a2ddfc6-dd83-4bdd-83d1-9fa3b582ac8d" SourceId="1" SourceUrl="http://localhost:52687/AllFunc.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

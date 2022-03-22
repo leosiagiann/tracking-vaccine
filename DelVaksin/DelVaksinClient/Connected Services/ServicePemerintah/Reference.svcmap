@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5e8177bc-68ea-427c-aa6c-051ed9ab34b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52687/SPemerintah.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SPemerintah.disco" MetadataType="Disco" ID="5acbd325-3b5e-43ae-9fe2-b4b495519e8b" SourceId="1" SourceUrl="http://localhost:52687/SPemerintah.svc?disco" />
+    <MetadataFile FileName="SPemerintah.wsdl" MetadataType="Wsdl" ID="e052a385-f925-41f1-bd69-65e6c3016708" SourceId="1" SourceUrl="http://localhost:52687/SPemerintah.svc?wsdl" />
+    <MetadataFile FileName="SPemerintah.xsd" MetadataType="Schema" ID="0f90c794-c470-4dd7-80c1-b848d23c8c93" SourceId="1" SourceUrl="http://localhost:52687/SPemerintah.svc?xsd=xsd0" />
+    <MetadataFile FileName="SPemerintah1.xsd" MetadataType="Schema" ID="1ec13074-796e-4fad-a02b-4006a297ccdd" SourceId="1" SourceUrl="http://localhost:52687/SPemerintah.svc?xsd=xsd2" />
+    <MetadataFile FileName="SPemerintah2.xsd" MetadataType="Schema" ID="e9806568-3778-4ded-a278-791504a7c17c" SourceId="1" SourceUrl="http://localhost:52687/SPemerintah.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

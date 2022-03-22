@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DelVaksin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">DelVaksin</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (ViewBag.ulala == true)
+                    {
+                    <li><a href="/Penduduk/Index?NIK=@ViewBag.nik">Home</a></li>
+                    }else{
+                        <li>@Html.ActionLink("Home", "/Index")</li>
+                    }
+                    @if (ViewBag.session == "Home")
+                    {
+                        <li><a href="#Login" data-toggle="modal">Login</a></li>
+                        <li><a href="#Register" data-toggle="modal">Register</a></li>
+                    }
+                    else
+                    {
+                        if (ViewBag.ulala == true)
+                        {
+                            <li><a href="#Profil" data-toggle="modal">Profil</a></li>
+                            <li><a href="#Password" data-toggle="modal">Ubah Password</a></li>
+                        }
+                        if (ViewBag.iniprod == true)
+                        {
+                            <li><a href="/BadanPom/Bagikan">Bagikan Vaksin</a></li>
+                            <li><a href="/BadanPom/LihatSampai">Vaksin diterima</a></li>
+                            <li><a href="/BadanPom/LihatPakai">Vaksin digunakan</a></li>
+                        }
+                        if (ViewBag.inirumsak == true)
+                        {
+                            <li><a href="/RumahSakit/ReportVaksin">Lapor</a></li>
+                            <li><a href="/RumahSakit/History">History</a></li>
+                        }
+                        if (ViewBag.iniPem == true)
+                        {
+                            <li><a href="/Pemerintah/ListPenduduk">Daftar Penerima Vaksin</a></li>
+                        }
+                        <li><a href="/Home/Logout">Logout</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <p>&copy; DelVaksin_08 @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

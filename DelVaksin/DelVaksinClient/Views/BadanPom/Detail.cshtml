@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Detail - Penggunaan Vaksin</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <form class="user" method="post" action="/RumahSakit/GunakanVaksin">
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Nomor Induk Kependudukan</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.nik" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Nama</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.namaPenduduk" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Umur</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.umur" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Alamat</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.alamat" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Jenis Kelamin</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    @if (ViewBag.j_kel == "L")
+                    {
+                        <input type="text" class="form-control" value="Laki - Laki" readonly>
+                    }
+                    @if (ViewBag.j_kel == "P")
+                    {
+                        <input type="text" class="form-control" value="Perempuan" readonly>
+                    }
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">ID Vaksin yang Digunakan</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.id" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Nama Vaksin yang Digunakan</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.namaVaksin" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label class="control-label" style="position:relative; top:7px;">Nama Perawat yang Bertugas</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" value="@ViewBag.namaPerawat" readonly>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <div style="padding: 20px;">
+        <a href="/BadanPom/LihatPakai">
+            <button class="btn btn-primary"><i class="glyphicon glyphicon-hand-left"></i> Kembali</button>
+        </a>
+    </div>
+</div>
+<br />

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AllData" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52687/AllData.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52687/AllData.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52687/AllData.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DelVaksin" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAllData_getAllAkun_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAkun" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllAkun_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllAkunResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllVaksin_Veried_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVaksin_Veried" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllVaksin_Veried_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllVaksin_VeriedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllRegis_Vaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRegis_Vaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllRegis_Vaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRegis_VaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getAllPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPendudukResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdVaksin_Veried_InputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdVaksin_Veried" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdVaksin_Veried_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdVaksin_VeriedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdRegis_Vaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdRegis_Vaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdRegis_Vaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdRegis_VaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllData_getByIdPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getByIdPendudukResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAllData">
+    <wsdl:operation name="getAllAkun">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getAllAkun" message="tns:IAllData_getAllAkun_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getAllAkunResponse" message="tns:IAllData_getAllAkun_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getAllVaksin" message="tns:IAllData_getAllVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getAllVaksinResponse" message="tns:IAllData_getAllVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllVaksin_Veried">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getAllVaksin_Veried" message="tns:IAllData_getAllVaksin_Veried_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getAllVaksin_VeriedResponse" message="tns:IAllData_getAllVaksin_Veried_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRegis_Vaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getAllRegis_Vaksin" message="tns:IAllData_getAllRegis_Vaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getAllRegis_VaksinResponse" message="tns:IAllData_getAllRegis_Vaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getAllPenduduk" message="tns:IAllData_getAllPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getAllPendudukResponse" message="tns:IAllData_getAllPenduduk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getByIdVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getByIdVaksin" message="tns:IAllData_getByIdVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getByIdVaksinResponse" message="tns:IAllData_getByIdVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getByIdVaksin_Veried">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getByIdVaksin_Veried" message="tns:IAllData_getByIdVaksin_Veried_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getByIdVaksin_VeriedResponse" message="tns:IAllData_getByIdVaksin_Veried_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getByIdRegis_Vaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getByIdRegis_Vaksin" message="tns:IAllData_getByIdRegis_Vaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getByIdRegis_VaksinResponse" message="tns:IAllData_getByIdRegis_Vaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getByIdPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllData/getByIdPenduduk" message="tns:IAllData_getByIdPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllData/getByIdPendudukResponse" message="tns:IAllData_getByIdPenduduk_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAllData" type="tns:IAllData">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllAkun">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getAllAkun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getAllVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllVaksin_Veried">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getAllVaksin_Veried" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRegis_Vaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getAllRegis_Vaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getAllPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByIdVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getByIdVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByIdVaksin_Veried">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getByIdVaksin_Veried" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByIdRegis_Vaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getByIdRegis_Vaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByIdPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllData/getByIdPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AllData">
+    <wsdl:port name="BasicHttpBinding_IAllData" binding="tns:BasicHttpBinding_IAllData">
+      <soap:address location="http://localhost:52687/AllData.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

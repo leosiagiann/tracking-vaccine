@@ -1,0 +1,133 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Regis_Vaksin>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    .snv {
+        background-color: #0000FF;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .sv {
+        background-color: #008000;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .svf {
+        background-color: #FF0000;
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Registrasi Vaksin - Badan POM</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: darkgrey">
+                <tr style="color: white">
+                    <th>
+                        ID Vaksin
+                    </th>
+                    <th>
+                        Nama Vaksin
+                    </th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.ID_vaksin)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.nama)
+                        </th>
+                        @if (item.status == 0)
+                        {
+                            <th>
+                                <button class="btn btn-danger" onclick="location.href='@Url.Action("Tolak", new { id = item.ID_vaksin })';return false;">Decline <i class="glyphicon glyphicon-remove"></i></button>
+                                <button class="btn btn-success" onclick="location.href='@Url.Action("Terima", new { id = item.ID_vaksin })';return false;">Accept <i class="glyphicon glyphicon-ok"></i></button>
+                            </th>
+                        }
+                        @if (item.status == 1 || item.status == 4)
+                        {
+                            <th>
+                                <span class="snv">Lulus Uji</span>
+                            </th>
+                        }
+                        @if (item.status == 2)
+                        {
+                            <th>
+                                <span class="svf">Tidak Lulus Uji</span>
+                            </th>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.berhasil == true)
+    {
+        <script>
+            swal({
+                title: "Selamat Datang Badan POM",
+                text: "Anda Berhasil Login",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.terima == true)
+    {
+        <script>
+            swal({
+                title: "Verifikasi Vaksin",
+                text: "Vaksin Lolos Verifikasi",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.tolak == true)
+    {
+        <script>
+            swal({
+                title: "Verifikasi Vaksin",
+                text: "Vaksin Gagal Verifikasi",
+                icon: "info",
+                button: "ok"
+            });
+        </script>
+    }
+}
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DelVaksin" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DelVaksin" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Penduduk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NIK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="alamat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jenis_kelamin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profil" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="umur" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Penduduk" nillable="true" type="tns:Penduduk" />
+</xs:schema>

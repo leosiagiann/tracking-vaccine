@@ -1,0 +1,256 @@
+﻿@model IEnumerable<DelVaksinClient.ServiceSemuaData.Vaksin>
+
+@{ ViewBag.Title = "Index"; }
+<style type="text/css">
+    .snv {
+        background-color: #0000FF;
+        padding: 5px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .swv {
+        background-color: violet;
+        padding: 5px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .sv {
+        background-color: #008000;
+        padding: 5px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .svf {
+        background-color: #FF0000;
+        padding: 5px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-radius: 4px
+    }
+
+    .bold {
+        font-weight: bold;
+        text-align: center;
+    }
+    th{
+        text-align: center
+    }
+</style>
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Vaksin - Produsen</h2>
+</div>
+
+@*  Tambah Vaksin   *@
+<div class="modal fade" id="TambahVaksin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-top: -10px">
+                <h3 id="myModalLabel">Tambah Vaksin</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="user" method="post" action="/Produsen/TambahVaksin">
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">ID Vaksin</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="id" id="id" placeholder="ID Vaksin"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" style="position:relative; top:7px;">Nama Vaksin</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="control-span" style="position:relative; top:7px;">:</span>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Vaksin"
+                                       required>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="position:relative; top:-15px; margin-bottom: -15px">
+                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="submit" name="tambah" class="btn btn-success">Tambah</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*  Tambah Vaksin   *@
+
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <a href="#TambahVaksin" data-toggle="modal"><button class="btn btn-success">Tambah Vaksin <i class="fas fa-plus"></i></button></a>
+        <br /><br />
+        <table id="example" class="display" style="width:100%">
+            <thead style="background-color: chartreuse">
+                <tr>
+                    <th>ID Vaksin</th>
+                    <th>Nama Vaksin</th>
+                    <th>Option</th>
+                    <th>Status Vaksin</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="bold">
+                            @Html.DisplayFor(modelItem => item.ID_vaksin)
+                        </td>
+                        <td class="bold">
+                            @Html.DisplayFor(modelItem => item.nama)
+                        </td>
+                        <td class="bold">
+                            <button class="btn btn-warning" onclick="location.href='@Url.Action("Detail", new { id = item.ID_vaksin })';return false;">Detail <i class="fas fa-eye"></i></button>
+                        </td>
+                        @if (item.status == 0)
+                        {
+                            <td class="bold">
+                                <button class="btn btn-success" onclick="location.href='@Url.Action("Verifikasi", new { id = item.ID_vaksin })';return false;">Verifikasi <i class="glyphicon glyphicon-registration-mark"></i></button>
+                                <button class="btn btn-info" onclick="location.href='@Url.Action("Edit", new { id = item.ID_vaksin })';return false;">Edit <i class="glyphicon glyphicon-edit"></i></button>
+                            </td>
+                            <td class="bold">
+                                <span class="snv">Not Verified</span>
+                            </td>
+                        }
+                        @if (item.status == 1)
+                        {
+                            <td class="bold">
+                                <button class="btn btn-primary" onclick="location.href='@Url.Action("Send", new { id = item.ID_vaksin })';return false;">Send <i class="glyphicon glyphicon-send"></i></button>
+                            </td>
+                            <td class="bold">
+                                <span class="sv">Verified</span>
+                            </td>
+                        }
+                        @if (item.status == 2)
+                        {
+                            <td class="bold">
+                                <button class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.ID_vaksin })';return false;">Delete <i class="glyphicon glyphicon-trash"></i></button>
+                            </td>
+                            <td class="bold">
+                                <span class="svf">Verification Failed</span>
+                            </td>
+                        }
+                        @if (item.status == 3)
+                        {
+                            <td class="bold">
+                                <span class="swv">Waiting</span>
+                            </td>
+                            <td class="bold">
+                                <span class="swv">Waiting</span>
+                            </td>
+                        }
+                        @if (item.status == 5 || item.status == 6 || item.status == 7 || item.status == 8)
+                        {
+                            <td class="bold">
+                                <span class="sv">Sending</span>
+                            </td>
+                            <td class="bold">
+                                <span class="sv">Sending</span>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+    @if (ViewBag.berhasil == true)
+    {
+        <script>
+            swal({
+                title: "Selamat Datang Produsen",
+                text: "Anda Berhasil Login",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.tambah == true)
+    {
+        <script>
+            swal({
+                title: "Produsen",
+                text: "Anda Berhasil Menambahkan Vaksin",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.edit == true)
+    {
+        <script>
+            swal({
+                title: "Produsen",
+                text: "Anda Berhasil Mengubah Informasi Vaksin",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.hapus == true)
+    {
+        <script>
+            swal({
+                title: "Produsen",
+                text: "Anda Berhasil Menghapus Vaksin",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.verifikasi == true)
+    {
+        <script>
+            swal({
+                title: "Produsen",
+                text: "Anda Berhasil Melakukan Verifikasi Vaksin",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+    @if (ViewBag.kirim == true)
+    {
+        <script>
+            swal({
+                title: "Produsen",
+                text: "Anda Berhasil Mengirim Vaksin",
+                icon: "success",
+                button: "ok"
+            });
+        </script>
+    }
+}
+<link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

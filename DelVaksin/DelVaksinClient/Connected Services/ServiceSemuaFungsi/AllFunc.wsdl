@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AllFunc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52687/AllFunc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52687/AllFunc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52687/AllFunc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DelVaksin" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAllFunc_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_terimaVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:terimaVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_terimaVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:terimaVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_tolakVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:tolakVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_tolakVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:tolakVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_gunakanVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:gunakanVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_gunakanVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gunakanVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_tambahVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:tambahVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_tambahVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:tambahVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_editVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:editVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_editVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_hapusVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:hapusVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_hapusVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:hapusVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_kirimVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:kirimVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_kirimVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:kirimVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_bagikanVaksinId_InputMessage">
+    <wsdl:part name="parameters" element="tns:bagikanVaksinId" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_bagikanVaksinId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:bagikanVaksinIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_bagikanVaksinAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:bagikanVaksinAll" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_bagikanVaksinAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:bagikanVaksinAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_daftarVaksin_InputMessage">
+    <wsdl:part name="parameters" element="tns:daftarVaksin" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_daftarVaksin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:daftarVaksinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_gunakanVaksinPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:gunakanVaksinPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_gunakanVaksinPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gunakanVaksinPendudukResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_vaksinSudahTerpakai_InputMessage">
+    <wsdl:part name="parameters" element="tns:vaksinSudahTerpakai" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_vaksinSudahTerpakai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:vaksinSudahTerpakaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_balikStatusPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:balikStatusPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_balikStatusPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:balikStatusPendudukResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_ubahDataPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:ubahDataPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_ubahDataPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ubahDataPendudukResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_ubahPasswordPenduduk_InputMessage">
+    <wsdl:part name="parameters" element="tns:ubahPasswordPenduduk" />
+  </wsdl:message>
+  <wsdl:message name="IAllFunc_ubahPasswordPenduduk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ubahPasswordPendudukResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAllFunc">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/Register" message="tns:IAllFunc_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/RegisterResponse" message="tns:IAllFunc_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="terimaVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/terimaVaksin" message="tns:IAllFunc_terimaVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/terimaVaksinResponse" message="tns:IAllFunc_terimaVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="tolakVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/tolakVaksin" message="tns:IAllFunc_tolakVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/tolakVaksinResponse" message="tns:IAllFunc_tolakVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gunakanVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/gunakanVaksin" message="tns:IAllFunc_gunakanVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/gunakanVaksinResponse" message="tns:IAllFunc_gunakanVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="tambahVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/tambahVaksin" message="tns:IAllFunc_tambahVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/tambahVaksinResponse" message="tns:IAllFunc_tambahVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/editVaksin" message="tns:IAllFunc_editVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/editVaksinResponse" message="tns:IAllFunc_editVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="hapusVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/hapusVaksin" message="tns:IAllFunc_hapusVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/hapusVaksinResponse" message="tns:IAllFunc_hapusVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="kirimVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/kirimVaksin" message="tns:IAllFunc_kirimVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/kirimVaksinResponse" message="tns:IAllFunc_kirimVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bagikanVaksinId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/bagikanVaksinId" message="tns:IAllFunc_bagikanVaksinId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/bagikanVaksinIdResponse" message="tns:IAllFunc_bagikanVaksinId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bagikanVaksinAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/bagikanVaksinAll" message="tns:IAllFunc_bagikanVaksinAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/bagikanVaksinAllResponse" message="tns:IAllFunc_bagikanVaksinAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="daftarVaksin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/daftarVaksin" message="tns:IAllFunc_daftarVaksin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/daftarVaksinResponse" message="tns:IAllFunc_daftarVaksin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gunakanVaksinPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/gunakanVaksinPenduduk" message="tns:IAllFunc_gunakanVaksinPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/gunakanVaksinPendudukResponse" message="tns:IAllFunc_gunakanVaksinPenduduk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="vaksinSudahTerpakai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/vaksinSudahTerpakai" message="tns:IAllFunc_vaksinSudahTerpakai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/vaksinSudahTerpakaiResponse" message="tns:IAllFunc_vaksinSudahTerpakai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="balikStatusPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/balikStatusPenduduk" message="tns:IAllFunc_balikStatusPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/balikStatusPendudukResponse" message="tns:IAllFunc_balikStatusPenduduk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ubahDataPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/ubahDataPenduduk" message="tns:IAllFunc_ubahDataPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/ubahDataPendudukResponse" message="tns:IAllFunc_ubahDataPenduduk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ubahPasswordPenduduk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllFunc/ubahPasswordPenduduk" message="tns:IAllFunc_ubahPasswordPenduduk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllFunc/ubahPasswordPendudukResponse" message="tns:IAllFunc_ubahPasswordPenduduk_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAllFunc" type="tns:IAllFunc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terimaVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/terimaVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tolakVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/tolakVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gunakanVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/gunakanVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tambahVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/tambahVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/editVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hapusVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/hapusVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/kirimVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bagikanVaksinId">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/bagikanVaksinId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bagikanVaksinAll">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/bagikanVaksinAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="daftarVaksin">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/daftarVaksin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gunakanVaksinPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/gunakanVaksinPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vaksinSudahTerpakai">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/vaksinSudahTerpakai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="balikStatusPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/balikStatusPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ubahDataPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/ubahDataPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ubahPasswordPenduduk">
+      <soap:operation soapAction="http://tempuri.org/IAllFunc/ubahPasswordPenduduk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AllFunc">
+    <wsdl:port name="BasicHttpBinding_IAllFunc" binding="tns:BasicHttpBinding_IAllFunc">
+      <soap:address location="http://localhost:52687/AllFunc.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="jumbotron" style="background-color: seagreen">
+    <h2 style="color: white; margin-top: -20px; margin-bottom: -15px;">Detail - Vaksin</h2>
+</div>
+<div style="background-color: whitesmoke">
+    <div style="padding: 20px" class="table-responsive">
+        <form class="user" method="post" action="/RumahSakit/GunakanVaksin">
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label" style="position:relative; top:7px;">ID Vaksin</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="@ViewBag.id" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label" style="position:relative; top:7px;">Nama Vaksin</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="@ViewBag.nama" readonly>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label" style="position:relative; top:7px;">Status Vaksin</label>
+                </div>
+                <div class="col-sm-1">
+                    <span class="control-span" style="position:relative; top:7px;">:</span>
+                </div>
+                <div class="col-sm-9">
+                    @if (ViewBag.status == 0)
+                    {
+                        <input type="text" class="form-control" value="Belum Di Verifikasi" readonly>
+                    }
+                    @if (ViewBag.status == 1 || ViewBag.status == 5 || ViewBag.status == 6 || ViewBag.status == 7 || ViewBag.status == 8)
+                    {
+                        <input type="text" class="form-control" value="Lulus Uji BPOM" readonly style="background-color: green; color: white; font-weight: bold">
+                    }
+                    @if (ViewBag.status == 2)
+                    {
+                        <input type="text" class="form-control" value="Gagal Uji BPOM" readonly style="background-color: red; color: white; font-weight: bold">
+                    }
+                    @if (ViewBag.status == 3)
+                    {
+                        <input type="text" class="form-control" value="Menunggu Konfirmasi Uji BPOM" readonly style="background-color: violet; color: white; font-weight: bold">
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <div style="padding: 20px;">
+        <a href="/Produsen/Index">
+            <button class="btn btn-primary"><i class="glyphicon glyphicon-hand-left"></i> Kembali</button>
+        </a>
+    </div>
+</div>
+<br />
